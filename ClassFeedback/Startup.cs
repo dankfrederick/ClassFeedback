@@ -16,7 +16,7 @@ namespace ClassFeedback
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-
+            services.AddMvc(x => x.EnableEndpointRouting = false);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -27,15 +27,16 @@ namespace ClassFeedback
                 app.UseDeveloperExceptionPage();
             }
 
-            // Temporary use of static HTML file until dynamic views are created
-            app.UseDefaultFiles();
-            app.UseStaticFiles();
-
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
-                     name: "RoomRoute",
-                     template: "{roomID}");
+                     name: "Landing",
+                     template: "{controller=Landing}/{action=Index}");
+
+                routes.MapRoute(
+                    name: "Room",
+                    template: "Room/{id}",
+                    defaults: new { controller = "Room", action = "Index" });
             });
 
             app.Run(async (context) =>

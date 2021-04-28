@@ -1,7 +1,6 @@
 ﻿
 @{
     Layout = null;
-
     /* TODO: Add pull of RoomID values from Room model
     *  TODO: Add Voting and Chat Functions
     *
@@ -13,12 +12,14 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Room - ID</title>
+    <title>Index</title>
 </head>
 <body>
     <h1>Welcome to Room - ID</h1>
 
     <h2> Voting Placeholder</h2>
     <h2> Chat Placeholder</h2>
+
+    @await Html.PartialAsync("_Footer")
 </body>
 </html>
