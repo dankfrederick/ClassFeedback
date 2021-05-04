@@ -12,5 +12,10 @@ namespace ClassFeedback.Controllers
         {
             return View();
         }
+
+        public IActionResult Join()
+        {
+            return View();
+        }
     }
 }

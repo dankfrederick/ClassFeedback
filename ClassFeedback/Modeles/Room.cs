@@ -9,17 +9,18 @@ namespace ClassFeedback.Modeles
     {
         public int RoomID { get; set; }
         public RoomOwner Owner { get; set; }
-        public RoomParticipant[] Participants { get; set; }
+        public User[] Participants { get; set; }
 
         /* default constructor creates a new room with an assigned owner and a semi-randomly generated RoomID
          * RoomID will be used for routing and must be unique
          * TODO: Add a check that roomID is unique before assigning
          */
-        public Room(RoomOwner _Owner)
+        public Room(RoomOwner _Owner, int ID)
         {   
             Owner = _Owner;
-            Random rand = new Random();
-            RoomID = Owner.FirstName[0] + Owner.LastName[0] + rand.Next(0, 9999);
+            RoomID = ID;
+            Participants = new User[1];
+            Participants[0] = _Owner;
         }
 
     }

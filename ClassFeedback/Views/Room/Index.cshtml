@@ -1,4 +1,4 @@
-﻿
+﻿@model IEnumerable<ClassFeedback.Modeles.Message>
 @{
     Layout = null;
     /* TODO: Add pull of RoomID values from Room model
@@ -15,10 +15,15 @@
     <title>Index</title>
 </head>
 <body>
-    <h1>Welcome to Room - ID</h1>
+    <h1>Welcome to Room - @ViewBag.RoomID</h1>
 
     <h2> Voting Placeholder</h2>
-    <h2> Chat Placeholder</h2>
+    <h2> Chat Window</h2>
+    @foreach (var ms in Model)
+            {
+                // Display all chat messages
+                <p>@ms.PostDateTime | @(ms.AnonymousMessage)?"Anon":ms.Author | @ms.MessageText</p>
+            }
 
     @await Html.PartialAsync("_Footer")
 </body>

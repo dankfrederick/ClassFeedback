@@ -14,8 +14,8 @@
     <h1>Welcome to Class Feedback</h1>
     <h2>Please select to Create or Join a Room below</h2>
 
-    <button id="BuildRoom">Create a Room</button>
-    <button id="JoinRoom">Join a Room</button>
+    <input type="button" value="Create a Room" onclick="location.href='@Url.Action("Index", "RoomBuild")'" />
+    <input type="button" value="Join a Room" onclick="location.href='@Url.Action("Join", "Landing")'" />
 
     @await Html.PartialAsync("_Footer")
 </body>

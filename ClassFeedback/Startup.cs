@@ -35,7 +35,7 @@ namespace ClassFeedback
 
                 routes.MapRoute(
                     name: "Room",
-                    template: "Room/{id}",
+                    template: "Room/{id?}",
                     defaults: new { controller = "Room", action = "Index" });
             });
 
